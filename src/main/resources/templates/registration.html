@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AfHoC</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          type="text/css">
+</head>
+<body class="bg-secondary">
+<div class="row justify-content-center mt-3">
+    <header class="border-top-bottom bg-white w-75 rounded-top row justify-content-between p-1">
+        <div class="col-1">
+            <a class="text-decoration-none" href="/"><h3>AfHoC</h3></a>
+        </div>
+        <div class="col-1 ">
+            <a href="/login" class="btn btn-primary">login</a>
+        </div>
+    </header>
+    <div class="bg-light w-75 p-5">
+        <form class="row justify-content-center w-25 bg-white m-auto p-2 rounded border border-secondary"
+              action="/register" method="POST">
+            <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden">
+            <div th:if="${login}" class="alert alert-danger" role="alert">
+                Login exist!
+            </div>
+            <div th:if="${password}" class="alert alert-danger" role="alert">
+                "Passwords do not match"!
+            </div>
+            <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Login" name="username" id="username" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" name="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Confirm password" name="confirmPassword" id="confirmPassword" required>
+            </div>
+            <div class="w-100"></div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+    <footer class="row justify-content-center border-top-bottom bg-white w-75 rounded-bottom align-middle p-2">
+        <span class="text-muted align-middle">Application for head of construction</span>
+    </footer>
+</div>
+</body>
+</html>0

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AfHoC</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          type="text/css">
+</head>
+<body class="bg-secondary">
+<div class="row justify-content-center mt-3">
+    <header class="border-top-bottom bg-white w-75 rounded-top row justify-content-between p-1">
+        <div class="col-1">
+            <a class="text-decoration-none" href="/"><h3>AfHoC</h3></a>
+        </div>
+        <div class="col-1 pt-2" th:text="${username}"/>
+        <div class="col-1 pt-1">
+            <a class="btn btn-primary btn-sm" href="/logout">Log out</a>
+        </div>
+    </header>
+    <div class="bg-light w-75 p-5">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <label>Name:</label>
+                <div th:text="${name}"/>
+            </li>
+            <li class="list-group-item">
+                <label>Project:</label>
+                <div th:text="${project}"/>
+            </li>
+            <li class="list-group-item">
+                <label>Description:</label>
+                <div th:text="${description}"/>
+            </li>
+            <li class="list-group-item">
+                <label>Status:</label>
+                <div th:text="${status}"/>
+            </li>
+            <li class="list-group-item">
+                <label>Start date:</label>
+                <div th:text="${sd}"/>
+            </li>
+            <li class="list-group-item">
+                <label>Deadline:</label>
+                <div th:text="${deadline}"/>
+            </li>
+            <li class="list-group-item">
+                <label>Priority:</label>
+                <div th:text="${priority}"/>
+            </li>
+            <li class="list-group-item">
+                <label>Materials:</label>
+                <div th:text="${materials}"/>
+            </li>
+            <li class="list-group-item">
+                <label>performer:</label>
+                <div th:text="${performer}"/>
+            </li>
+            <li class="list-group-item">
+                <label>Costs:</label>
+                <div th:text="${costs}"/>
+            </li>
+        </ul>
+
+    </div>
+    <footer class="row justify-content-center border-top-bottom bg-white w-75 rounded-bottom align-middle p-2">
+        <span class="text-muted align-middle">Application for head of construction</span>
+    </footer>
+</div>
+</body>
+</html>

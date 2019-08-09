@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AfHoC</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          type="text/css">
+</head>
+<body class="bg-secondary">
+<div class="row justify-content-center mt-3">
+    <header class="border-top-bottom bg-white w-75 rounded-top row justify-content-between p-1">
+        <div class="col-1">
+            <a class="text-decoration-none" href="/"><h3>AfHoC</h3></a>
+        </div>
+        <div class="col-1 pt-2" th:text="${username}"/>
+        <div class="col-1 pt-1">
+            <a class="btn btn-primary btn-sm" href="/logout">Log out</a>
+        </div>
+    </header>
+    <div class="bg-light w-75 p-5">
+        <form class="w-50 bg-white m-auto p-2 rounded border border-secondary" method="POST"
+              action="/create_task_form">
+            <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden">
+            <div class="row justify-content-center mb-1 font-weight-bold">
+                Create project
+            </div>
+            <div class="form-group w-100">
+                <input type="text" class="form-control" placeholder="Name" id="name" name="name" required autofocus>
+            </div>
+            <div class="w-100"></div>
+            <div class="form-group w-100">
+                <select class="form-control" name="project" id="project">
+                    <th:block th:each="project : ${projects}">
+                        <option th:text="${project.name}"></option>
+                    </th:block>
+                </select>
+            </div>
+            <div class="w-100"></div>
+            <div class="form-group w-100">
+                <textarea type="text" class="form-control" placeholder="Description" id="description" name="description"></textarea>
+            </div>
+            <div class="w-100"></div>
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select class="form-control" name="status" id="status">
+                    <option>Plane</option>
+                    <option>In process</option>
+                    <option>Done</option>
+                </select>
+            </div>
+            <div class="w-100"></div>
+            <div class="form-group">
+                <label for="deadline">Deadline:</label>
+                <input type="date" class="form-control" name="deadline" id="deadline">
+            </div>
+            <div class="w-100"></div>
+            <div class="form-group">
+                <label for="priority">Status:</label>
+                <select class="form-control" name="priority" id="priority">
+                    <option>Normal</option>
+                    <option>Hight</option>
+                    <option>Low</option>
+                </select>
+            </div>
+            <div class="w-100"></div>
+            <div class="form-group w-100">
+                <textarea type="text" class="form-control" placeholder="Materials" id="materials" name="materials"></textarea>
+            </div>
+            <div class="w-100"></div>
+            <div class="form-group w-100">
+                <input type="text" class="form-control" placeholder="Performer" id="performer" name="performer" required autofocus>
+            </div>
+            <div class="w-100"></div>
+            <div class="form-group w-100">
+                <input type="number" class="form-control" placeholder="Cost" id="costs" name="costs" required autofocus>
+            </div>
+            <div class="w-100"></div>
+            <button type="submit" class="btn btn-success">Create</button>
+        </form>
+    </div>
+    <footer class="row justify-content-center border-top-bottom bg-white w-75 rounded-bottom align-middle p-2">
+        <span class="text-muted align-middle">Application for head of construction</span>
+    </footer>
+</div>
+</body>
+</html>

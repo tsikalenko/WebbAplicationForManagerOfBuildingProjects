@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AfHoC</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          type="text/css">
+</head>
+<body class="bg-secondary">
+<div class="row justify-content-center mt-3">
+    <header class="border-top-bottom bg-white w-75 rounded-top p-1">
+            <div class="col-1">
+            <a class="text-decoration-none" href="/"><h3>AfHoC</h3></a>
+        </div>
+    </header>
+    <div class="bg-light w-75 p-5">
+        <form class="row justify-content-center w-25 bg-white m-auto p-2 rounded border border-secondary"   method="POST" action="/login">
+            <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden">
+            <div th:if="${error}" class="alert alert-danger" role="alert">
+                Invalid login or password!
+            </div>
+            <div th:if="${logout}" class="alert alert-info" role="alert">
+                You've been logged out successfully!
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="User name" id="username" name="username" required autofocus>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
+            </div>
+            <div class="w-100"></div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="w-100"></div>
+            <a href="/registration">Register</a>
+        </form>
+    </div>
+    <footer class="row justify-content-center border-top-bottom bg-white w-75 rounded-bottom align-middle p-2">
+        <span class="text-muted align-middle">Application for head of construction</span>
+    </footer>
+</div>
+</body>
+</html>

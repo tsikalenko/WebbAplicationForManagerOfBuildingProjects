@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AfHoC</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          type="text/css">
+</head>
+<body class="bg-secondary">
+<div class="row justify-content-center mt-3">
+    <header class="border-top-bottom bg-white w-75 rounded-top row justify-content-between p-1">
+        <div class="col-1">
+            <a class="text-decoration-none" href="/"><h3>AfHoC</h3></a>
+        </div>
+        <div class="col-1 pt-2" th:text="${username}"/>
+        <div class="col-1 pt-1">
+            <a class="btn btn-primary btn-sm" href="/logout">Log out</a>
+        </div>
+    </header>
+    <div class="row justify-content-center bg-light w-75 pt-3">
+        <table class="table w-75">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Status</th>
+                <th scope="col">Start date</th>
+                <th scope="col">Deadline</th>
+                <th scope="col">Priority</th>
+                <th scope="col">Materials</th>
+                <th scope="col">Performer</th>
+                <th scope="col">Costs</th>
+<!--                <th scope="col">Go to task</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="task : ${tasks}">
+                <td th:text="${task.name}">Name</td>
+                <td th:text="${task.description}">Description</td>
+                <td th:text="${task.status}">Status</td>
+                <td th:text="${task.startDate}">Start date</td>
+                <td th:text="${task.deadline}">Deadline</td>
+                <td th:text="${task.priority}">Priority</td>
+                <td th:text="${task.materials}">Materials</td>
+                <td th:text="${task.performer}">Performer</td>
+                <td th:text="${task.costs}">Cost</td>
+                <td ><a class="btn btn-primary btn-sm" th:href="@{'/task?id=' + ${task.id}}">More</a></td>
+            </tr>
+            <tr>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ><b>Total cost:</b></td>
+                <td th:text="${fullCost}"></td>
+                <td ></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="w-100"></div>
+        <div class="justify-content-center mb-2">
+            <a class="btn btn-primary btn-sm" href="/create_task">Create task</a>
+        </div>
+    </div>
+    <footer class="row justify-content-center border-top-bottom bg-white w-75 rounded-bottom align-middle p-2">
+        <span class="text-muted align-middle">Application for head of construction</span>
+    </footer>
+</div>
+</body>
+</html>
