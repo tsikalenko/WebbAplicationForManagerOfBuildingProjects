@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-//import com.grabduck.demo.springsecurity.persistence.UserDao;
 
 @Service
 public class UserService implements UserDetailsService {
